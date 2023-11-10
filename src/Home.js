@@ -16,7 +16,7 @@ export default function Home() {
       {data ? (
         data.articles.map((article, index) => (
           <div key={index}>
-            <img src={article.urlToImage} />
+            <img src={article.urlToImage} alt={article.title}/>
           </div>
         ))
       ) : (
