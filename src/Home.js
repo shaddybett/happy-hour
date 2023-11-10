@@ -7,9 +7,15 @@ export default function Home() {
     fetch(
       "https://newsapi.org/v2/everything?q=apple&from=2023-11-09&to=2023-11-09&sortBy=popularity&apiKey=20c90a308e904e2ab5a58bc7699de1b0 "
     )
-      .then((Response) => Response.json())
+      .then((Response) => {
+        if (!Response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return Response.json();
+      })
       .then((news) => setData(news))
-      .catch((error) => console.error("something,s off",error));
+
+      .catch((error) => console.error("something,s off", error));
   }, []);
   return (
     <div>
@@ -17,7 +23,7 @@ export default function Home() {
         data.articles.map((article, index) => (
           <div key={index}>
             <p>Title:{article.title}</p>
-            <img src={article.urlToImage} alt={article.title}/>
+            <img src={article.urlToImage} alt={article.title} />
           </div>
         ))
       ) : (
