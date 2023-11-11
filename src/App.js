@@ -1,10 +1,7 @@
-import React from "react";
-import Home from "./Home";
+import React from 'react'
+
 export default function App() {
   return (
-    <div>
-      <h1>Happy</h1>
-      <Home/>
-    </div>
-  );
+    <div>App</div>
+  )
 }
